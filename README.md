@@ -3,7 +3,6 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An intelligent Natural Language Processing (NLP) system designed to monitor and analyze communication patterns within digital communities. Using a fine-tuned BERT model, Guardian AI detects emotional distress and behavioral risks in Egyptian Arabic dialect, providing real-time educational interventions.
 
