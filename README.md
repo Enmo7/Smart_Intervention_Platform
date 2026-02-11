@@ -586,6 +586,7 @@ mypy app/
 - [ ] Professional therapist portal
 
 ---
+<img width="1683" height="762" alt="m" src="https://github.com/user-attachments/assets/5a30734a-319f-4538-b37c-3d8186c9a37e" />
 
 <div align="center">
 
