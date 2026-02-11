@@ -1,0 +1,9 @@
+transformers
+datasets
+torch
+evaluate
+scikit-learn
+pandas
+fastapi
+uvicorn[standard]
+jinja2
