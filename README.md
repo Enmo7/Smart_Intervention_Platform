@@ -23,7 +23,6 @@ An intelligent Natural Language Processing (NLP) system designed to monitor and 
 - [Configuration](#-configuration)
 - [Performance](#-performance)
 - [Contributing](#-contributing)
-- [License](#-license)
 - [Acknowledgments](#-acknowledgments)
 
 ---
@@ -214,38 +213,16 @@ GuardianAI/
 │
 ├── static/
 │   ├── css/
-│   │   ├── style.css           # Main stylesheet (Glassmorphism)
-│   │   └── rtl.css             # RTL-specific styles
-│   ├── js/
-│   │   ├── app.js              # Frontend logic
-│   │   └── chat.js             # Chat interface handler
-│   └── images/
-│       └── logo.png
+│   │   └── style.css           # Main stylesheet (Glassmorphism)
 │
 ├── templates/
-│   ├── index.html              # Main chat interface
-│   └── admin.html              # Admin dashboard
+│   └── index.html              # Main chat interface
 │
-├── scripts/
-│   ├── train.py                # Model training script
-│   ├── evaluate.py             # Model evaluation
-│   └── preprocess.py           # Data preprocessing
+├── Training/
+│   └── egyptian-sentiment.ipynb           # Model training
 │
-├── tests/
-│   ├── test_api.py             # API endpoint tests
-│   ├── test_engine.py          # Engine unit tests
-│   └── test_integration.py     # Integration tests
-│
-├── docs/
-│   ├── API.md                  # API documentation
-│   ├── DEPLOYMENT.md           # Deployment guide
-│   └── CONTRIBUTING.md         # Contribution guidelines
-│
-├── .env.example                # Environment variables template
-├── .gitignore                  # Git ignore rules
 ├── requirements.txt            # Python dependencies
-├── README.md                   # This file
-└── LICENSE                     # Project license
+└── README.md                   # This file
 ```
 
 ---
