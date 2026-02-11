@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Guardian AI | رادار الوعي الذكي</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-section">
+            <div id="chat-window">
+                <div class="bubble bot">أهلاً بك في نظام الرصد الذكي. ابدأ الكتابة وسأقوم بتحليل الحالة فوراً.</div>
+            </div>
+            <form class="input-box" id="chat-form">
+                <input type="text" id="msg" placeholder="اكتب رسالتك هنا..." required>
+                <button type="submit">إرسال</button>
+            </form>
+        </div>
+        
+        <div class="sidebar">
+            <h2>محرك التحليل الذكي 🧠</h2>
+            <div id="analysis-output">بانتظار إدخال رسالة...</div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('chat-form');
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const msg = document.getElementById('msg').value;
+            appendMsg(msg, 'user');
+            document.getElementById('msg').value = '';
+
+            const res = await fetch('/analyze', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: `message=${encodeURIComponent(msg)}`
+            });
+            const data = await res.json();
+            showAnalysis(data);
+        };
+
+        function appendMsg(t, c) {
+            const d = document.createElement('div');
+            d.className = `bubble ${c}`;
+            d.textContent = t;
+            const window = document.getElementById('chat-window');
+            window.appendChild(d);
+            window.scrollTop = window.scrollHeight;
+        }
+
+        function showAnalysis(data) {
+            const out = document.getElementById('analysis-output');
+            
+            // تحويل مسميات المودل إلى العربية للعرض فقط
+            const labelMap = { "Positive": "إيجابي", "Negative": "سلبي", "Neutral": "محايد" };
+            const arabicLabel = labelMap[data.label] || data.label;
+
+            out.innerHTML = `
+                <div class="analysis-card" style="border-top: 5px solid ${data.color}">
+                    <h3 style="color:${data.color}">${data.title}</h3>
+                    <p>تصنيف المودل: <strong>${arabicLabel}</strong></p>
+                    <p>نسبة التأكد: <strong>${data.confidence}%</strong></p>
+                    <hr style="opacity:0.1">
+                    <p style="font-size:0.95rem">${data.message}</p>
+                    ${data.video ? `<iframe src="${data.video}" frameborder="0" allowfullscreen></iframe>` : ''}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
